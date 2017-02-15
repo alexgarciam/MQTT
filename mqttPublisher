@@ -1,0 +1,7 @@
+var mqtt=require('mqtt');
+
+var client=mqtt.connect('mqtt://localhost');
+
+client.publish('test/topic','Hello MQTT from node!')
+
+client.end();

@@ -1,0 +1,14 @@
+var mqtt=require('mqtt');
+
+var client=mqtt.connect('mqtt://192.168.116.131');
+
+client.on('connect',function(){
+	
+	//subscribe to topic
+	client.subscribe('test/topic', function(){
+		client.on('message', function(topic, message, packet){
+			console.log("Received '" + message + " 'on '"+ topic +"'");
+		});
+		
+	});
+});
